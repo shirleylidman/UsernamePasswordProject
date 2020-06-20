@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:UsernamePasswordProject;assembly=UsernamePasswordProject"
+             xmlns:a="clr-namespace:UsernamePasswordProject.ViewModels"
+             mc:Ignorable="d"
+             x:Class="UsernamePasswordProject.Views.ShowDataPage"
+             >
+    
+    <ContentPage.BindingContext>
+        <a:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Clicked="OnItemClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <ListView Grid.Column="0"
+             ItemsSource="{Binding userListView}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Username}" Font="15,Bold" />
+                            <Label Text="{Binding Password}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+    
+
+    
+    
+</ContentPage>
