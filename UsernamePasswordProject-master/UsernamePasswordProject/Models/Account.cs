@@ -7,6 +7,6 @@ namespace LocalDatabaseTutorial.Models
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Username { get; set; }
-        public int Password { get; set; }
+        public string Password { get; set; }
     }
 }
