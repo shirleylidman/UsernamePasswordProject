@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UsernamePasswordProject.ViewModels;
 using Xamarin.Forms;
 
 namespace UsernamePasswordProject.Views
@@ -13,16 +14,29 @@ namespace UsernamePasswordProject.Views
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+
+        public MainPageViewModel mainPageViewModel { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
+
+            mainPageViewModel = new MainPageViewModel();
+            mainPageViewModel.PropertyChanged += MainPageViewModel_PropertyChanged;
+            this.BindingContext = mainPageViewModel;
         }
 
-        async void OnSaveButtonClicked(object sender, EventArgs e)
+        private async void MainPageViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == "UserCreated")
+            {
+                if (mainPageViewModel.UserCreated)
+                    await Navigation.PushAsync(new ShowDataPage(mainPageViewModel));
+                else
+                    await DisplayAlert("Unavailable", "This username is already taken", "OK");
 
-            await Navigation.PushAsync(new ShowDataPage());
-
+            }
         }
+
     }
 }

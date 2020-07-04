@@ -3,20 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:UsernamePasswordProject.ViewModels;assembly=UsernamePasswordProject"
              mc:Ignorable="d"
              x:Class="UsernamePasswordProject.Views.MainPage">
 
+
+
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Editor Placeholder="Username"
+            <Entry Placeholder="Username"
                     Text="{Binding Username}"
                     Margin="20"/>
-            <Editor Placeholder="Password"
+            <Entry Placeholder="Password"
                     Text="{Binding Password}"
-                    Margin="20"/>
+                    Margin="20"
+                    IsPassword="True"/>
             <Button Text="Save"
-                    Command ="{Binding SaveCommand}"
-                    Clicked="OnSaveButtonClicked"/>
+                    Command ="{Binding SaveCommand}"/>
+
         </StackLayout>
     </ContentPage.Content>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocalDatabaseTutorial.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -50,6 +51,7 @@ namespace UsernamePasswordProject.Views
                 listView.ItemsSource = await App.Database.GetPeopleAsync();
             }
             */
+
         }
 
         async void OnItemClicked(object sender, EventArgs e)
